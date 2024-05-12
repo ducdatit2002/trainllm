@@ -12,7 +12,16 @@
 #SBATCH --error=train_%j.err    
 #SBATCH --exclusive            
 
-module load cuda/10.2           
+module load cuda/10.2
+
+conda activate trainllm
+
+conda install pytorch torchvision torchaudio -c pytorch
+
+pip install transformers datasets
+
+pip install tiktoken
+
    
 python main.py                  
 
